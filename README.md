@@ -111,6 +111,9 @@ solve that issue. For example by replacing the `DateTime` hint with
 In cases where that is not an option, the `DateTimeMutableClock` clock can be 
 used instead.
 
+In case timezones are important in your context, there is also a 
+`TimeZoneAwareClock`, which takes a timezone as constructor parameter.
+
 To prevent the clock from ticking while other code is running, your tests can 
 instantiate and inject an `UnmovingClock`.
 
