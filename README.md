@@ -3,6 +3,7 @@ Factory for creating datetime objects.
 
 [![Build Status](https://travis-ci.org/Stratadox/Clock.svg?branch=master)](https://travis-ci.org/Stratadox/Clock)
 [![Coverage Status](https://coveralls.io/repos/github/Stratadox/Clock/badge.svg?branch=master)](https://coveralls.io/github/Stratadox/Clock?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Stratadox/Clock/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Stratadox/Clock/?branch=master)
 
 ## What
 It's really as simple as the name suggests: this is a clock, used to indicate 
