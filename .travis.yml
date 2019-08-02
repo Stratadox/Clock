@@ -19,6 +19,7 @@ script:
   - mkdir -p build/logs
   - vendor/bin/phpunit -c phpunit.xml --testdox
   - vendor/bin/phpstan analyse -c phpstan.neon
+  - vendor/bin/phpstan analyse -c phpstan-tests.neon
   - ./infection.phar
 
 after_success:
