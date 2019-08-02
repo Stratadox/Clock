@@ -107,7 +107,7 @@ The default implementation is the `DateTimeClock`. It produces a new
 If the datetime object needs to be passed into something that has a `DateTime` 
 type hint, or otherwise relies on mutable datetime objects, it is preferable to 
 solve that issue. For example by replacing the `DateTime` hint with 
-`DateTimeImmutable`, or passing along a `RewindableClock`.
+`DateTimeIterface` or `DateTimeImmutable`, or passing along a `RewindableClock`.
 In cases where that is not an option, the `DateTimeMutableClock` clock can be 
 used instead.
 
