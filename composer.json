@@ -1,0 +1,30 @@
+{
+  "name": "stratadox/clock",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Stratadox",
+      "homepage": "http://www.stratadox.com/"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Stratadox\\Clock\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Stratadox\\Clock\\Test\\": "tests",
+      "Your\\Project\\": ["tests/Example/Something", "tests/Example/Schedule"]
+    }
+  },
+  "require": {
+    "php": ">=7.2"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-master",
+    "phpunit/phpunit": "^8.2",
+    "phpstan/phpstan": "^0.11.12",
+    "php-coveralls/php-coveralls": "^2.1"
+  }
+}
