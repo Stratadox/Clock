@@ -12,6 +12,8 @@ what time it is.
 Since it produces [DateTime](https://www.php.net/datetimeinterface) objects, 
 this clock is somewhat special in the sense that it can also read the date.
 
+![Just a clock, really.](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Balloon_bracket_clock_MET_DP-13122-043.jpg/500px-Balloon_bracket_clock_MET_DP-13122-043.jpg)
+
 ## Why
 - As soon as you use "unadulterated" datetime objects in your code, any test 
   you've written for it immediately risks being flaky, because if there's a tiny 
