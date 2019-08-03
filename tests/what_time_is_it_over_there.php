@@ -2,38 +2,51 @@
 
 namespace Stratadox\Clock\Test;
 
+use DateTime;
+use DateTimeImmutable;
 use DateTimeZone;
 use PHPUnit\Framework\TestCase;
 use Stratadox\Clock\TimeZoneAwareClock;
+use Stratadox\Clock\TimeZoneAwareMutableClock;
 
 /**
  * @testdox what time is it over there
  */
 class what_time_is_it_over_there extends TestCase
 {
-    /** @test */
-    function checking_the_time_in_a_different_timezone()
+    /**
+     * @test
+     * @dataProvider timezones
+     */
+    function checking_the_time_in_a_different_timezone(string $timezone)
     {
-        $clock = TimeZoneAwareClock::in(new DateTimeZone('Europe/Amsterdam'));
+        $clock = TimeZoneAwareClock::in(new DateTimeZone($timezone));
 
         $now = $clock->now();
 
-        $this->assertEquals('Europe/Amsterdam', $now->getTimezone()->getName());
+        $this->assertEquals($timezone, $now->getTimezone()->getName());
+        $this->assertInstanceOf(DateTimeImmutable::class, $now);
     }
 
-    /** @test */
-    function checking_the_time_in_another_different_timezone()
+    /**
+     * @test
+     * @dataProvider timezones
+     */
+    function checking_the_mutable_time_in_a_different_timezone(string $timezone)
     {
-        $clock = TimeZoneAwareClock::in(new DateTimeZone('Asia/Dubai'));
+        $clock = TimeZoneAwareMutableClock::in(new DateTimeZone($timezone));
 
         $now = $clock->now();
 
-        $this->assertEquals('Asia/Dubai', $now->getTimezone()->getName());
+        $this->assertEquals($timezone, $now->getTimezone()->getName());
+        $this->assertInstanceOf(DateTime::class, $now);
     }
 
-    /** @test */
-    function checking_the_mutable_time_in_a_different_timezone()
+    public static function timezones(): iterable
     {
-
+        return [
+            'Europe/Amsterdam' => ['Europe/Amsterdam'],
+            'Asia/Dubai' => ['Asia/Dubai'],
+        ];
     }
 }

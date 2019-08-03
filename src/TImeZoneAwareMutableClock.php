@@ -2,17 +2,17 @@
 
 namespace Stratadox\Clock;
 
-use DateTimeImmutable;
+use DateTime;
 use DateTimeInterface;
 use DateTimeZone;
 
 /**
- * TimeZoneAwareClock. This clock is just like a regular clock, except that it
- * knows in which time zone it operates.
+ * TImeZoneAwareMutableClock. This clock is just like a regular mutable clock,
+ * except that it knows in which time zone it operates.
  *
  * @author Stratadox
  */
-final class TimeZoneAwareClock implements Clock
+final class TImeZoneAwareMutableClock implements Clock
 {
     private $timeZone;
 
@@ -28,6 +28,6 @@ final class TimeZoneAwareClock implements Clock
 
     public function now(): DateTimeInterface
     {
-        return new DateTimeImmutable('now', $this->timeZone);
+        return new DateTime('now', $this->timeZone);
     }
 }
