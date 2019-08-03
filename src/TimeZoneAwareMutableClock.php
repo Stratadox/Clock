@@ -12,7 +12,7 @@ use DateTimeZone;
  *
  * @author Stratadox
  */
-final class TImeZoneAwareMutableClock implements Clock
+final class TimeZoneAwareMutableClock implements Clock
 {
     private $timeZone;
 
