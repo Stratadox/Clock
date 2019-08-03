@@ -190,3 +190,18 @@ class SchedulerTest extends TestCase
     }
 }
 ```
+
+Here's an overview of which clock to use when:
+
+| Clock                     | When to use                                |
+| ------------------------- | ------------------------------------------ |
+| DateTimeClock             | In most situations                         |
+| DateTimeMutableClock      | When you can't use DateTimeImmutable       |
+| TimeZoneAwareClock        | When the default timezone isn't enough     |
+| TimeZoneAwareMutableClock | When both two previous reasons apply       |
+| UnmovingClock             | During testing                             |
+| RewindableDateTimeClock   | If the clock needs to be set back or forth |
+
+Note that the rewindable clock can be combined with any other clocks, in order 
+to produce, for instance, rewinded mutable datetime objects in a particular 
+timezone.
