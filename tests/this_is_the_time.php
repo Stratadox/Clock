@@ -12,7 +12,7 @@ use Stratadox\Clock\UnmovingClock;
 class this_is_the_time extends TestCase
 {
     /** @test */
-    function this_is_definitely_the_time()
+    function configuring_an_unmoving_clock()
     {
         $clock = UnmovingClock::standingStillAt(new DateTimeImmutable('30-4-1945'));
 
