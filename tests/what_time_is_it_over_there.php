@@ -24,8 +24,8 @@ class what_time_is_it_over_there extends TestCase
 
         $now = $clock->now();
 
-        $this->assertEquals($timezone, $now->getTimezone()->getName());
-        $this->assertInstanceOf(DateTimeImmutable::class, $now);
+        self::assertEquals($timezone, $now->getTimezone()->getName());
+        self::assertInstanceOf(DateTimeImmutable::class, $now);
     }
 
     /**
@@ -38,8 +38,8 @@ class what_time_is_it_over_there extends TestCase
 
         $now = $clock->now();
 
-        $this->assertEquals($timezone, $now->getTimezone()->getName());
-        $this->assertInstanceOf(DateTime::class, $now);
+        self::assertEquals($timezone, $now->getTimezone()->getName());
+        self::assertInstanceOf(DateTime::class, $now);
     }
 
     public static function timezones(): iterable

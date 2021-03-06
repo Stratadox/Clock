@@ -20,8 +20,8 @@ class what_time_is_it extends TestCase
 
         $now = $clock->now();
 
-        $this->assertEqualsWithDelta(new DateTime(), $now, 1);
-        $this->assertInstanceOf(DateTimeImmutable::class, $now);
+        self::assertEqualsWithDelta(new DateTime(), $now, 1);
+        self::assertInstanceOf(DateTimeImmutable::class, $now);
     }
 
     /** @test */
@@ -31,7 +31,7 @@ class what_time_is_it extends TestCase
 
         $now = $clock->now();
 
-        $this->assertEqualsWithDelta(new DateTime(), $now, 1);
-        $this->assertInstanceOf(DateTime::class, $now);
+        self::assertEqualsWithDelta(new DateTime(), $now, 1);
+        self::assertInstanceOf(DateTime::class, $now);
     }
 }

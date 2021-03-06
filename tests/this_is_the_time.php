@@ -18,7 +18,7 @@ class this_is_the_time extends TestCase
 
         $now = $clock->now();
 
-        $this->assertEquals(new DateTimeImmutable('30-4-1945'), $now);
-        $this->assertInstanceOf(DateTimeImmutable::class, $now);
+        self::assertEquals(new DateTimeImmutable('30-4-1945'), $now);
+        self::assertInstanceOf(DateTimeImmutable::class, $now);
     }
 }

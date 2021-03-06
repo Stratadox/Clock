@@ -19,7 +19,7 @@ class fast_forwarding_the_clock extends TestCase
 
         $clock = $clock->fastForward(new DateInterval('PT10M'));
 
-        $this->assertEqualsWithDelta(new DateTime('+10 minutes'), $clock->now(), 1);
+        self::assertEqualsWithDelta(new DateTime('+10 minutes'), $clock->now(), 1);
     }
 
     /** @test */
@@ -29,7 +29,7 @@ class fast_forwarding_the_clock extends TestCase
             ->fastForward(new DateInterval('PT10M'))
             ->fastForward(new DateInterval('PT10M'));
 
-        $this->assertEqualsWithDelta(new DateTime('+20 minutes'), $clock->now(), 1);
+        self::assertEqualsWithDelta(new DateTime('+20 minutes'), $clock->now(), 1);
     }
 
     /** @test */
@@ -40,8 +40,8 @@ class fast_forwarding_the_clock extends TestCase
 
         $otherClock = $clock->fastForward(new DateInterval('PT5M'));
 
-        $this->assertEqualsWithDelta(new DateTime('+5 minutes'), $clock->now(), 1);
-        $this->assertEqualsWithDelta(new DateTime('+10 minutes'), $otherClock->now(), 1);
+        self::assertEqualsWithDelta(new DateTime('+5 minutes'), $clock->now(), 1);
+        self::assertEqualsWithDelta(new DateTime('+10 minutes'), $otherClock->now(), 1);
     }
 
     /** @test */
@@ -51,6 +51,6 @@ class fast_forwarding_the_clock extends TestCase
             ->fastForward(new DateInterval('PT5M'))
             ->rewind(new DateInterval('PT5M'));
 
-        $this->assertEqualsWithDelta(new DateTime(), $clock->now(), 1);
+        self::assertEqualsWithDelta(new DateTime(), $clock->now(), 1);
     }
 }

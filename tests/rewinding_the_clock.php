@@ -18,7 +18,7 @@ class rewinding_the_clock extends TestCase
     {
         $clock = RewindableDateTimeClock::create();
 
-        $this->assertEqualsWithDelta(new DateTime(), $clock->now(), 1);
+        self::assertEqualsWithDelta(new DateTime(), $clock->now(), 1);
     }
 
     /** @test */
@@ -28,7 +28,7 @@ class rewinding_the_clock extends TestCase
 
         $clock = $clock->rewind(new DateInterval('PT5M'));
 
-        $this->assertEqualsWithDelta(new DateTime('-5 minutes'), $clock->now(), 1);
+        self::assertEqualsWithDelta(new DateTime('-5 minutes'), $clock->now(), 1);
     }
 
     /** @test */
@@ -38,7 +38,7 @@ class rewinding_the_clock extends TestCase
 
         $clock = $clock->rewind(new DateInterval('P10D'));
 
-        $this->assertEqualsWithDelta(new DateTime('-10 days'), $clock->now(), 1);
+        self::assertEqualsWithDelta(new DateTime('-10 days'), $clock->now(), 1);
     }
 
     /** @test */
@@ -48,7 +48,7 @@ class rewinding_the_clock extends TestCase
             ->rewind(new DateInterval('PT5M'))
             ->rewind(new DateInterval('PT5M'));
 
-        $this->assertEqualsWithDelta(new DateTime('-10 minutes'), $clock->now(), 1);
+        self::assertEqualsWithDelta(new DateTime('-10 minutes'), $clock->now(), 1);
     }
 
     /** @test */
@@ -59,8 +59,8 @@ class rewinding_the_clock extends TestCase
 
         $otherClock = $clock->rewind(new DateInterval('PT5M'));
 
-        $this->assertEqualsWithDelta(new DateTime('-5 minutes'), $clock->now(), 1);
-        $this->assertEqualsWithDelta(new DateTime('-10 minutes'), $otherClock->now(), 1);
+        self::assertEqualsWithDelta(new DateTime('-5 minutes'), $clock->now(), 1);
+        self::assertEqualsWithDelta(new DateTime('-10 minutes'), $otherClock->now(), 1);
     }
 
     /** @test */
@@ -69,6 +69,6 @@ class rewinding_the_clock extends TestCase
         $clock = RewindableDateTimeClock::using(DateTimeMutableClock::create())
             ->rewind(new DateInterval('P10D'));
 
-        $this->assertInstanceOf(DateTime::class, $clock->now());
+        self::assertInstanceOf(DateTime::class, $clock->now());
     }
 }
